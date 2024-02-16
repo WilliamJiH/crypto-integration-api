@@ -7,7 +7,7 @@ const app = express();
 
 app.use(helmet({ crossOriginEmbedderPolicy: false, contentSecurityPolicy: false }));
 
-const apiPort = 3001;
+const apiPort = 5000;
 
 let session = require('express-session')({
   secret: 'csc301-savifinance',
@@ -25,10 +25,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', ethRouter);
-
-app.use('/', express.static('src/views'));
-app.use('*', express.static('src/views'));
-app.use('/*', express.static('src/views'));
 
 app.listen(apiPort, () => console.log(`Server listening at http://localhost:${apiPort}`));
 
