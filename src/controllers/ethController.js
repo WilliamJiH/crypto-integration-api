@@ -25,15 +25,5 @@ const getWalletBalance = async (req, res) => {
     }
 }
 
-const getTransactionHistory = async (req, res) => {
-    try {
-        const address = req.query.address;
-        const getLogs = await web3.eth.getPastLogs(address);
-        return res.json({ logs: getLogs });
-    } catch (error) {
-        console.error(error);
-        return res.status(500).send(error.message);
-    }
-}
 
-module.exports = { getBlockNumber, getWalletBalance, getTransactionHistory };
+module.exports = { getBlockNumber, getWalletBalance };

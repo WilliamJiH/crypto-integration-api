@@ -16,8 +16,5 @@ const router = express.Router();
 
 router.get('/blockNumber', ethController.getBlockNumber);
 router.get('/getWalletBalance', ethController.getWalletBalance);
-router.get('/getTransactionHistory', ethController.getTransactionHistory);
-router.get('/', (req, res) => {
-  res.json(['😀', '😳', '🙄']);
-});
+
 module.exports = router;

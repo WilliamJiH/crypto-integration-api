@@ -7,7 +7,7 @@ const app = express();
 
 app.use(helmet({ crossOriginEmbedderPolicy: false, contentSecurityPolicy: false }));
 
-const apiPort = 5000;
+const apiPort = 3001;
 
 let session = require('express-session')({
   secret: 'csc301-savifinance',
