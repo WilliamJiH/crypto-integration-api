@@ -1,16 +1,18 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const ethRouter = require('./routes/ethRouter');
-const helmet = require('helmet');
+const express = require("express");
+const bodyParser = require("body-parser");
+const ethRouter = require("./routes/ethRouter");
+const helmet = require("helmet");
 
 const app = express();
 
-app.use(helmet({ crossOriginEmbedderPolicy: false, contentSecurityPolicy: false }));
+app.use(
+  helmet({ crossOriginEmbedderPolicy: false, contentSecurityPolicy: false })
+);
 
 const apiPort = 3001;
 
-let session = require('express-session')({
-  secret: 'csc301-savifinance',
+let session = require("express-session")({
+  secret: "csc301-savifinance",
   resave: true,
   saveUninitialized: true,
   cookie: {
@@ -24,8 +26,10 @@ app.use(session);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/api', ethRouter);
+app.use("/api", ethRouter);
 
-app.listen(apiPort, () => console.log(`Server listening at http://localhost:${apiPort}`));
+app.listen(apiPort, () =>
+  console.log(`Server listening at http://localhost:${apiPort}`)
+);
 
 module.exports = app;
